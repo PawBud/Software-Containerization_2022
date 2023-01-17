@@ -8,7 +8,7 @@ const PORT = 4000;
 
 // mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/antiracismdb', {
+mongoose.connect('mongodb+srv://softcont:softcont2022@softw-cont.634tgax.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
