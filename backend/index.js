@@ -1,5 +1,5 @@
 import express from 'express';
-import routes from '../backend/src/routes/antiracismRoutes';
+import routes from './src/routes/antiracismRoutes';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
