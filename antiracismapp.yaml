@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: AntiRacism
+spec:
+  selector:
+    app: antiracism
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: antiracism/v1
+kind: Deployment
+metadata:
+  name: antiracism-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: antiracism
+  template:
+    metadata:
+      labels:
+        app: antiracism
+    spec:
+      containers:
+      - name: antiracism
+        image: sef_con_frontend:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: antiracism-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
