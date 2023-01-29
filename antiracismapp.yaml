@@ -80,3 +80,21 @@ spec:
   resources:
     requests:
       storage: 1Gi
+---
+apiVersion: networking.helm/v1
+kind: Ingress
+metadata:
+  name: antiracism-gke-ingress
+spec:
+  ingressClassName: nginx-antiracism
+  rules:
+  - http:
+      paths:
+      - path: /external-api-antiracism
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: test
+            port:
+              number: 8090
+
