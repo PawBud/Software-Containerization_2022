@@ -30,7 +30,7 @@ spec:
     spec: 
       containers: 
       - name: antiracism-container 
-        image: localhost:32000/antiracism 
+        image: tvaskisalo/sof_con_2022:sof_con_backend 
         ports: 
         - containerPort: 4000
 ---
@@ -66,7 +66,7 @@ spec:
     spec:
       containers:
       - name: antiracism-frontend-container
-        image: localhost:32000/sof_con_frontend
+        image: tvaskisalo/sof_con_2022:sof_con_frontend
         ports:
         - containerPort: 80
 ---
