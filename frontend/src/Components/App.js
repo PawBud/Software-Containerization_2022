@@ -22,8 +22,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const urlDonations = 'http://localhost:4000/donations'
-    const urlEntries = 'http://localhost:4000/entries'
+    const urlDonations = 'http://localhost:30003/donations'
+    const urlEntries = 'http://localhost:30003/entries'
 
 
     axios.get(urlDonations, { crossdomain: true })

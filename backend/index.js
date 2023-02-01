@@ -2,6 +2,8 @@ import express from 'express';
 import routes from './src/routes/antiracismRoutes';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+
 
 const app = express();
 const PORT = 4000;
@@ -13,6 +15,7 @@ mongoose.connect('mongodb+srv://softcont:softcont2022@softw-cont.634tgax.mongodb
   useUnifiedTopology: true
 })
 
+app.use(cors());
 //bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());

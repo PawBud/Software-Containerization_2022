@@ -16,6 +16,15 @@ in ./frontend/
 
 Frontend will be available at localhost:3000
 
+To make it available to kubernetes run:
+
+```
+docker tag sof_con_frontend localhost:32000/sof_con_frontend
+```
+```
+docker push localhost:32000/sof_con_frontend
+```
+
 # Backend
 
 To build the backend container execute
@@ -34,3 +43,10 @@ in ./backend/
 
 Backend will be available at localhost:4000
 
+To make it available to kuberneter run:
+```
+docker tag sof_con_backend localhost:32000/antiracism
+```
+```
+docker push localhost:32000/antiracism
+```
