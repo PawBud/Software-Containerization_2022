@@ -48,3 +48,5 @@ I realized it may be an Axios issue and found a solution on [this Github board](
 I finally got it to work by adding in the backend/index.js file the following code:
 
 `app.use(function(req, res, next) { res.header('Access-Control-Allow-Origin', '*'); res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); next(); });`
+
+### A deploy.sh is posted in the root of the directory to facilitate running the application using minikube.
