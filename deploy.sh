@@ -37,7 +37,7 @@ helm install -f  antiracismapp-db.yaml antiracismapp-db-helm /Users/punyakapoor/
 
 echo "Helm upgrade"
 
-helm upgrade -f ./antiracismapp-db/values.yaml -f override.yaml antiracismapp-db ./antiracismapp-db
+helm upgrade -f ./antiracismapp-db/values.yaml -f ./antiracismapp-db/override.yaml antiracismapp-db ./antiracismapp-db
 
 echo "helm uninstall"
 
