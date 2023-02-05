@@ -71,6 +71,17 @@ spec:
         - containerPort: 80
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: z-volume
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/app/data"
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: antiracism-pvc

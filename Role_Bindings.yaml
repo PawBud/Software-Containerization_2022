@@ -1,0 +1,41 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: backend-role-binding
+  namespace: default
+subjects:
+- kind: User
+  name: sanskarbajpai2907@gmail.com
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role 
+  name: backend-admin 
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: frontend-role-binding
+  namespace: default
+subjects:
+- kind: User
+  name: punyakapoor122@gmail.com
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role 
+  name: frontend-admin 
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: frontend-role-binding
+  namespace: default
+subjects:
+- kind: User
+  name: ferrypieme@gmail.com
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role 
+  name: db-admin 
+  apiGroup: rbac.authorization.k8s.io

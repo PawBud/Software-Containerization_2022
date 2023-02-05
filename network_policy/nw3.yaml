@@ -1,0 +1,11 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-egress-traffic
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: antiracismapp-frontend-7dbbd48585-rdtzn
+  policyTypes:
+  - Egress
