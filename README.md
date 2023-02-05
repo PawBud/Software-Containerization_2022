@@ -50,3 +50,5 @@ I finally got it to work by adding in the backend/index.js file the following co
 `app.use(function(req, res, next) { res.header('Access-Control-Allow-Origin', '*'); res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); next(); });`
 
 ### A deploy.sh is posted in the root of the directory to facilitate running the application using minikube.
+
+### We have added 3 different keys as there was a problem which we explained in the presenetation
