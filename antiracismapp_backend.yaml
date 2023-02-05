@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: AntiRacism
+  name: AntiRacism_backend
 spec:
   selector:
-    app: antiracism
+    app: antiracism_backend
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 6060
   type: ClusterIP
 ---
-apiVersion: antiracism/v1
+apiVersion: antiracism-backend/v1
 kind: Deployment
 metadata:
-  name: antiracism-deployment
+  name: antiracism-backend-deployment
 spec:
   replicas: 3
   selector:
@@ -26,11 +26,12 @@ spec:
         app: antiracism
     spec:
       containers:
-      - name: antiracism
-        image: sef_con_frontend:latest
+      - name: antiracism-backend
+        image: sef_con_backend:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 6060
 ---
+
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -42,10 +43,11 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/app/data"
+    
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: antiracism-pvc
+  name: antiracism-backend-pvc
 spec:
   accessModes:
     - ReadWriteOnce

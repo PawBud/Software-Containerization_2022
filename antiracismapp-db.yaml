@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: AntiRacism
+  name: AntiRacism-db
 spec:
   selector:
-    app: antiracism
+    app: antiracism-db
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 7070
   type: ClusterIP
 ---
 apiVersion: antiracism/v1
 kind: Deployment
 metadata:
-  name: antiracism-deployment
+  name: antiracism-db-deployment
 spec:
   replicas: 3
   selector:
@@ -26,10 +26,10 @@ spec:
         app: antiracism
     spec:
       containers:
-      - name: antiracism
-        image: sef_con_frontend:latest
+      - name: antiracism-db
+        image: mongo:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 7070
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -42,6 +42,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/app/data"
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
