@@ -1,0 +1,29 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: antiracsim-pv
+  labels:
+    type: local
+    app: mongodb
+spec:
+  storageClassName: standard-rwo
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/opt/mongo/data"
+
+---    
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-antiracismapp-1
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: standard-rwo
