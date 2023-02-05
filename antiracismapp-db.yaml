@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: AntiRacism-db
+spec:
+  selector:
+    app: antiracism-db
+  ports:
+  - name: http
+    port: 80
+    targetPort: 7070
+  type: ClusterIP
+---
+apiVersion: antiracism/v1
+kind: Deployment
+metadata:
+  name: antiracism-db-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: antiracism
+  template:
+    metadata:
+      labels:
+        app: antiracism
+    spec:
+      containers:
+      - name: antiracism-db
+        image: mongo:latest
+        ports:
+        - containerPort: 7070
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: z-volume
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/app/data"
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: antiracism-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
