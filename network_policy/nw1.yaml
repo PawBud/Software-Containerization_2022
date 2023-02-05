@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: incoming-traffic-restriction
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: antiracismapp-frontend-7dbbd48585-rdtzn
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 192.168.1.0/24
