@@ -1,0 +1,38 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: backend-admin
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["*"]
+  resourceNames:
+    - "antiracismapp-frontend-k9bv2"
+    - "antiracismapp-db-c9fd98947-c2psv"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: frontend-admin
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["*"]
+  resourceNames:
+    - "antiracismapp-backend-866744b9b4-wt5xk"
+    - "antiracismapp-db-c9fd98947-c2psv"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: db-admin
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["*"]
+  resourceNames:
+    - "antiracismapp-frontend-k9bv2"
+    - "antiracismapp-backend-866744b9b4-wt5xk"
