@@ -1,0 +1,75 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/backends: '{"k8s1-3b09feff-default-antiracismapp-frontend-k9bv2-80-ab98a06f":"HEALTHY"}'
+    ingress.kubernetes.io/forwarding-rule: k8s2-fr-bvi7x5hr-default-antiracism-frontend-ingress-1-5u6u2wb2
+    ingress.kubernetes.io/https-forwarding-rule: k8s2-fs-bvi7x5hr-default-antiracism-frontend-ingress-1-5u6u2wb2
+    ingress.kubernetes.io/https-target-proxy: k8s2-ts-bvi7x5hr-default-antiracism-frontend-ingress-1-5u6u2wb2
+    ingress.kubernetes.io/ssl-cert: k8s2-cr-bvi7x5hr-0b4hasj21kr0tw91-7f42495705770055
+    ingress.kubernetes.io/static-ip: k8s2-fr-bvi7x5hr-default-antiracism-frontend-ingress-1-5u6u2wb2
+    ingress.kubernetes.io/target-proxy: k8s2-tp-bvi7x5hr-default-antiracism-frontend-ingress-1-5u6u2wb2
+    ingress.kubernetes.io/url-map: k8s2-um-bvi7x5hr-default-antiracism-frontend-ingress-1-5u6u2wb2
+  creationTimestamp: "2023-02-04T14:00:39Z"
+  finalizers:
+  - networking.gke.io/ingress-finalizer-V2
+  generation: 4
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:defaultBackend:
+          .: {}
+          f:service:
+            .: {}
+            f:name: {}
+            f:port:
+              .: {}
+              f:number: {}
+        f:tls: {}
+    manager: GoogleCloudConsole
+    operation: Update
+    time: "2023-02-05T17:02:23Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:ingress.kubernetes.io/backends: {}
+          f:ingress.kubernetes.io/forwarding-rule: {}
+          f:ingress.kubernetes.io/https-forwarding-rule: {}
+          f:ingress.kubernetes.io/https-target-proxy: {}
+          f:ingress.kubernetes.io/ssl-cert: {}
+          f:ingress.kubernetes.io/static-ip: {}
+          f:ingress.kubernetes.io/target-proxy: {}
+          f:ingress.kubernetes.io/url-map: {}
+        f:finalizers:
+          .: {}
+          v:"networking.gke.io/ingress-finalizer-V2": {}
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: glbc
+    operation: Update
+    subresource: status
+    time: "2023-02-05T17:08:19Z"
+  name: antiracism-frontend-ingress-1
+  namespace: default
+  resourceVersion: "8878963"
+  uid: 13203c22-65ad-42a6-bf91-c50211c68cc0
+spec:
+  defaultBackend:
+    service:
+      name: antiracismapp-frontend-k9bv2
+      port:
+        number: 80
+  tls:
+  - hosts:
+    - https-anti.racism.com
+    secretName: antiracism-tls-secret
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.149.58.148
