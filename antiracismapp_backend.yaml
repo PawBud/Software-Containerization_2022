@@ -30,27 +30,7 @@ spec:
         image: sef_con_backend:latest
         ports:
         - containerPort: 6060
----
-
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: z-volume
-spec:
-  capacity:
-    storage: 3Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/app/data"
-    
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: antiracism-backend-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
+      volumes:
+        - name: mongodb
+          persistentVolumeClaim:
+            claimName: antiracism-backend-pvc
