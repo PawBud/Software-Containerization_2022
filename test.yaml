@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: antiracism-backend-deployment-test
+  labels: 
+    app: antiracism 
+spec: 
+  replicas: 4 
+  selector: 
+    matchLabels: 
+      app: antiracism 
+  template: 
+    metadata: 
+      labels: 
+        app: antiracism 
+    spec: 
+      containers: 
+      - name: antiracism-container 
+        image: tvaskisalo/sof_con_2022:sof_con_backend 
+        ports: 
+        - containerPort: 4000
